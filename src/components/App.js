@@ -16,17 +16,14 @@ class App extends Component {
     }
   }
 
-
-
+  //before we render we get the list of campaigns from the factory campaign file
   async componentDidMount(){
         const campaigns = await factory.methods.getDeployedCampaigns().call();
         this.setState({campaigns})
-
   }
 
 
-
-  //display the list of campaigns
+  //display the list of campaigns fetched from the factory campaign file
   renderCampaigns= ()=> {
       const items = this.state.campaigns.map(address => {
         //instead of returning a div, we teurn an array of objects and we pass this object into the semantic ui card item
@@ -45,11 +42,11 @@ class App extends Component {
           return (
                   <div className="App">
                           <header className="App-header">
-                            <h1 className="App-title">Welcome to React</h1>
+                            <h1 className="App-title">StartUp Funder</h1>
                           </header>
                           <Layout>
-                                 {this.renderCampaigns()}
-                                 <Button floated="right"  content="Create Campaign"  icon="add circle"  primary  />
+                                       <Button floated="right"  content="Create Campaign"  icon="add circle"  primary  />
+                                          {this.renderCampaigns()}
                           </Layout>
 
                   </div>
