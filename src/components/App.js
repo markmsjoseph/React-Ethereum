@@ -5,6 +5,8 @@ import web3 from '../ethereum/web3';
 import factory from '../ethereum/factory';
 import Campaign from '../ethereum/campaign';
 import Layout from './Layout';
+import { Link } from 'react-router-dom';
+
 
 
 class App extends Component {
@@ -29,7 +31,7 @@ class App extends Component {
         //instead of returning a div, we teurn an array of objects and we pass this object into the semantic ui card item
         return {
           header: address,
-          description: <a>View Campaign</a>,
+          description:   <Link to={`/campaigns/${address}`} className="item">View Campaign</Link>,
           fluid: true
         };
       });
@@ -45,8 +47,11 @@ class App extends Component {
                             <h1 className="App-title">StartUp Funder</h1>
                           </header>
                           <Layout>
+
+                            <Link to="/campaigns/new" className="item">
                                        <Button floated="right"  content="Create Campaign"  icon="add circle"  primary  />
-                                          {this.renderCampaigns()}
+                            </Link>
+                            {this.renderCampaigns()}
                           </Layout>
 
                   </div>

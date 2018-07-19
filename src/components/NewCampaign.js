@@ -6,6 +6,8 @@ import web3 from '../ethereum/web3';
 import { Link } from 'react-router-dom';
 
 class CampaignNew extends Component {
+
+
   state = {
     minimumContribution: '',
     errorMessage: '',
@@ -13,35 +15,35 @@ class CampaignNew extends Component {
   };
 
   onSubmit = async (event) => {
-    event.preventDefault();
+        event.preventDefault();
 
-    //set the status as loading
-    this.setState({
-      loading: true,
-       errorMessage: ''
-    });
-
-    try {
-      //pass in the minimum contribution from the set
-      //we dont have to specify gas value because we are using metamask in the browser
-      const accounts = await web3.eth.getAccounts();  //we have to specfy the source account from web3
-      await factory.methods
-        .createCampaign(this.state.minimumContribution)
-        .send({
-          from: accounts[0]
+        //set the status as loading
+        this.setState({
+          loading: true,
+           errorMessage: ''
         });
 
-      // Router.pushRoute('/');
-    }
-    //if there is an error, we catch it and set it as the state
-    catch (err) {
-      this.setState({ errorMessage: err.message });
-    }
+        try {
+          //pass in the minimum contribution from the set
+          //we dont have to specify gas value because we are using metamask in the browser
+          const accounts = await web3.eth.getAccounts();  //we have to specfy the source account from web3
+          await factory.methods
+            .createCampaign(this.state.minimumContribution)
+            .send({
+              from: accounts[0]
+            });
 
-    //async action complete so loading is false
-    this.setState({
-       loading: false
-   });
+          this.props.history.push('/')
+        }
+        //if there is an error, we catch it and set it as the state
+        catch (err) {
+          this.setState({ errorMessage: err.message });
+        }
+
+        //async action complete so loading is false
+        this.setState({
+           loading: false
+       });
   };
 
   //handles when thee user enters a min contribution
