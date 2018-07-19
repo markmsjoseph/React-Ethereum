@@ -4,6 +4,7 @@ import '../styles/App.css';
 import web3 from '../ethereum/web3';
 import factory from '../ethereum/factory';
 import Campaign from '../ethereum/campaign';
+import Layout from './Layout';
 
 
 class App extends Component {
@@ -43,10 +44,13 @@ class App extends Component {
 
           return (
                   <div className="App">
-                    <header className="App-header">
-                      <h1 className="App-title">Welcome to React</h1>
-                    </header>
-                     {this.renderCampaigns()}
+                          <header className="App-header">
+                            <h1 className="App-title">Welcome to React</h1>
+                          </header>
+                          <Layout>
+                                 {this.renderCampaigns()}
+                                 <Button floated="right"  content="Create Campaign"  icon="add circle"  primary  />
+                          </Layout>
 
                   </div>
           );
