@@ -7,7 +7,7 @@ import NewCampaign from './components/NewCampaign';
 import ShowCampaignDetails from './components/ShowCampaignDetails';
 import createHistory from 'history/createBrowserHistory';
 
-const history = createHistory();
+export const history = createHistory();
 
 const routes = (
               <Router history={history}>
