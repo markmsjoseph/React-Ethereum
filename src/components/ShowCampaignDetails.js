@@ -24,7 +24,8 @@ class ShowCampaignDetails extends Component {
   //get the address from the url and access data from the contract at that address
   async componentDidMount(){
       const address = this.props.location.pathname.split('/')[2];
-      const campaign = Campaign(address);
+      console.log( "address: ",address);
+      const campaign = Campaign( address);
 
       //details will be returned as an array  from getsummary
       const summary = await campaign.methods.getSummary().call();
@@ -107,9 +108,9 @@ class ShowCampaignDetails extends Component {
                 <Grid.Row>
                   <Grid.Column>
                     <Link to ={`/campaigns/${this.state.address}/requests`}>
-                      <a>
+
                         <Button primary>View Requests</Button>
-                      </a>
+
                     </Link>
                   </Grid.Column>
                 </Grid.Row>

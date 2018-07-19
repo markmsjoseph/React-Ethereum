@@ -24,9 +24,11 @@ class CampaignNew extends Component {
         });
 
         try {
+
           //pass in the minimum contribution from the set
           //we dont have to specify gas value because we are using metamask in the browser
           const accounts = await web3.eth.getAccounts();  //we have to specfy the source account from web3
+          console.log("ACCOUNTS", accounts);
           await factory.methods
             .createCampaign(this.state.minimumContribution)
             .send({
