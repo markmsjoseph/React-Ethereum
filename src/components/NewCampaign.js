@@ -58,22 +58,19 @@ class CampaignNew extends Component {
 
   render() {
     return (
-        <div className="App">
-              <header className="App-header">
-                <h1 className="App-title">StartUp Funder</h1>
-              </header>
+
             <Layout>
                     <h3>Create a Campaign</h3>
                     <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                             <Form.Field>
-                                  <label>Minimum Contribution</label>
+                                  <label>Minimum Contribution(minimum amount someone can contribute to this startup)</label>
                                   <Input label="wei" labelPosition="right" value={this.state.minimumContribution} onChange={this.onChangeMinimumContribution}/>
                             </Form.Field>
                             <Message error header="Oops!" content={this.state.errorMessage} />
                             <Button loading={this.state.loading} primary> Create! </Button>
                     </Form>
             </Layout>
-          </div>
+      
     );
   }
 }

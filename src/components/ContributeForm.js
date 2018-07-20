@@ -51,7 +51,7 @@ class ContributeForm extends Component {
         return (
                 <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                       <Form.Field>
-                            <label>Amount to Contribute</label>
+                            <label>Want to join this campaign? You must donate more than the minimum contribution in order to be able to vote how the money is spent.</label>
                             <Input value={this.state.value} onChange={this.onInputChange} label="ether"  labelPosition="right"/>
                       </Form.Field>
 

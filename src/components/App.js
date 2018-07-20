@@ -42,10 +42,7 @@ class App extends Component {
   render() {
 
           return (
-                  <div className="App">
-                          <header className="App-header">
-                            <h1 className="App-title">StartUp Funder</h1>
-                          </header>
+
                           <Layout>
 
                             <Link to="/campaigns/new" className="item">
@@ -54,7 +51,6 @@ class App extends Component {
                             {this.renderCampaigns()}
                           </Layout>
 
-                  </div>
           );
   }
 
